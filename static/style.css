@@ -1,0 +1,181 @@
+:root {
+	--bg: #f7f8fc;
+	--panel: #ffffff;
+	--text: #172033;
+	--muted: #5f6b84;
+	--accent: #2f6adf;
+	--border: #dbe3f3;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: linear-gradient(180deg, #eef3ff, var(--bg));
+	color: var(--text);
+	font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.page {
+	max-width: 720px;
+	margin: 40px auto;
+	background: var(--panel);
+	border: 1px solid var(--border);
+	border-radius: 14px;
+	padding: 24px;
+}
+
+h1 {
+	margin: 0;
+	font-size: 1.8rem;
+}
+
+.subtitle {
+	margin-top: 8px;
+	margin-bottom: 20px;
+	color: var(--muted);
+}
+
+.vocab-list {
+	display: grid;
+	gap: 8px;
+	margin-bottom: 24px;
+}
+
+.vocab-row {
+	display: grid;
+	grid-template-columns: auto auto auto auto 1fr;
+	gap: 10px;
+	align-items: center;
+	padding: 10px 12px;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	background: #fbfcff;
+}
+
+.token,
+.index,
+.vector {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 0.95rem;
+}
+
+.vector {
+	justify-self: end;
+	color: var(--muted);
+	font-size: 0.9rem;
+}
+
+.arrow {
+	color: var(--accent);
+	font-weight: 700;
+}
+
+.error {
+	margin: 0;
+	color: #a02d2d;
+}
+
+.encode-panel {
+	border-top: 1px solid var(--border);
+	padding-top: 20px;
+}
+
+.encode-panel h2 {
+	margin: 0 0 10px 0;
+	font-size: 1.25rem;
+}
+
+.encode-form {
+	display: grid;
+	gap: 10px;
+}
+
+.encode-form label {
+	font-weight: 600;
+	color: var(--muted);
+}
+
+.encode-form input {
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	font-size: 1rem;
+}
+
+.encode-form button {
+	justify-self: start;
+	padding: 9px 14px;
+	border: none;
+	border-radius: 8px;
+	background: var(--accent);
+	color: #fff;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.encode-form button:hover {
+	filter: brightness(0.95);
+}
+
+.encode-output {
+	margin-top: 14px;
+	margin-bottom: 0;
+	padding: 10px 12px;
+	border: 1px dashed var(--border);
+	border-radius: 8px;
+	font-family: "Courier New", Courier, monospace;
+	min-height: 42px;
+	display: flex;
+	align-items: center;
+}
+
+.plot-panel {
+	border-top: 1px solid var(--border);
+	padding-top: 20px;
+}
+
+.plot-panel h2 {
+	margin: 0 0 10px 0;
+	font-size: 1.25rem;
+}
+
+.plot-panel label {
+	display: block;
+	font-weight: 600;
+	color: var(--muted);
+	margin-bottom: 8px;
+}
+
+.plot-panel select {
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	font-size: 1rem;
+	margin-bottom: 14px;
+}
+
+.plot-container {
+	position: relative;
+	height: 300px;
+	margin-top: 14px;
+}
+
+.all-vectors-panel {
+	border-top: 1px solid var(--border);
+	padding-top: 20px;
+}
+
+.all-vectors-panel h2 {
+	margin: 0 0 10px 0;
+	font-size: 1.25rem;
+}
+
+.all-vectors-panel .subtitle {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
