@@ -8,11 +8,8 @@ app = FastAPI()
 
 vocab = [" ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-vocab_dictionary = {}
-for i,c in enumerate(vocab):
-    vocab_dictionary[c] = i
-
 def normalize(string: str):
+    string = string.lower()
     new_string = ""
     for c in string:
         if c in vocab:
@@ -21,27 +18,19 @@ def normalize(string: str):
             new_string = new_string + " "
     return re.sub(r'\s+', ' ', new_string)
 
-embedding = nn.Embedding(27, 2)
+embedding = nn.Embedding(27,2)
 
-@app.get("/vocab")
+vocab_lookup = {}
+for i, c in enumerate(vocab):
+    dictionary = {
+        "id": i,
+        "embedding": embedding(torch.tensor(i)).tolist()
+    }
+    vocab_lookup[c] = dictionary
+
+@app.get('/vocab')
 def get_vocab():
-    return vocab_dictionary
-
-
-@app.get('/encode')
-def encode(string: str):
-    encoded = []
-    for c in normalize(string):
-        encoded.append(vocab_dictionary[c])
-        
-    return encoded
-
-@app.get('/embed')
-def embed(char: str):
-    index = vocab_dictionary[char]
-    vector = embedding(torch.tensor(index))
-    return vector.tolist()
-
+    return vocab_lookup
 
 
 

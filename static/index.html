@@ -3,42 +3,29 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Transformer Vocabulary</title>
+	<title>Vocab Lookup</title>
 	<link rel="stylesheet" href="style.css" />
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 	<main class="page">
-		<h1>Vocabulary Mapping</h1>
-		<p class="subtitle">Each token points to its index in the vocabulary.</p>
+		<header class="hero">
+			<h1>Vocab Lookup</h1>
+			<p>Character to index to vector mapping from <code>/vocab</code></p>
+		</header>
 
-		<section id="vocab-list" class="vocab-list" aria-live="polite"></section>
+		<section class="layout">
+			<article class="card lookup-card">
+				<h2>Lookup Table</h2>
+				<p class="hint">Vertical vocab list with token -&gt; index -&gt; vector</p>
+				<div id="lookup-table" class="lookup-table" aria-live="polite"></div>
+			</article>
 
-		<section class="encode-panel" aria-live="polite">
-			<h2>Encode a String</h2>
-			<form id="encode-form" class="encode-form">
-				<label for="encode-input">Text to encode</label>
-				<input id="encode-input" name="encode-input" type="text" placeholder="Type text using the vocab characters" />
-				<button type="submit">Submit</button>
-			</form>
-			<p id="encode-output" class="encode-output">Encoding will appear here.</p>
-		</section>
-
-		<section class="plot-panel" aria-live="polite">
-			<h2>Vector Visualization</h2>
-			<label for="char-select">Select a character:</label>
-			<select id="char-select"></select>
-			<div class="plot-container">
-				<canvas id="vector-chart"></canvas>
-			</div>
-		</section>
-
-		<section class="all-vectors-panel" aria-live="polite">
-			<h2>All Vectors</h2>
-			<p class="subtitle">All vocabulary vectors plotted together. Hover to see character labels.</p>
-			<div class="plot-container">
-				<canvas id="all-vectors-chart"></canvas>
-			</div>
+			<article class="card plot-card">
+				<h2>Vector Plot</h2>
+				<p class="hint">2D embeddings from your endpoint</p>
+				<canvas id="vector-canvas" width="760" height="520" aria-label="Vector plot" role="img"></canvas>
+				<p id="plot-status" class="plot-status"></p>
+			</article>
 		</section>
 	</main>
 
