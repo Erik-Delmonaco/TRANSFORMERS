@@ -9,22 +9,88 @@
 <body>
 	<main class="page">
 		<header class="hero">
-			<h1>Vocab Lookup</h1>
-			<p>Character to index to vector mapping from <code>/vocab</code></p>
+			<h1>Embedding Lookups</h1>
+			<p>Character and position mappings from <code>/vocab</code> and <code>/position</code></p>
 		</header>
 
 		<section class="layout">
 			<article class="card lookup-card">
-				<h2>Lookup Table</h2>
+				<h2>Vocab Lookup Table</h2>
 				<p class="hint">Vertical vocab list with token -&gt; index -&gt; vector</p>
 				<div id="lookup-table" class="lookup-table" aria-live="polite"></div>
 			</article>
 
 			<article class="card plot-card">
-				<h2>Vector Plot</h2>
+				<h2>Vocab Vector Plot</h2>
 				<p class="hint">2D embeddings from your endpoint</p>
 				<canvas id="vector-canvas" width="760" height="520" aria-label="Vector plot" role="img"></canvas>
 				<p id="plot-status" class="plot-status"></p>
+			</article>
+		</section>
+
+		<section class="layout">
+			<article class="card lookup-card">
+				<h2>Position Lookup Table</h2>
+				<p class="hint">Vertical position list with position -&gt; index -&gt; vector</p>
+				<div id="position-lookup-table" class="lookup-table" aria-live="polite"></div>
+			</article>
+
+			<article class="card plot-card">
+				<h2>Position Vector Plot</h2>
+				<p class="hint">2D position embeddings from your endpoint</p>
+				<canvas id="position-vector-canvas" width="760" height="520" aria-label="Position vector plot" role="img"></canvas>
+				<p id="position-plot-status" class="plot-status"></p>
+			</article>
+		</section>
+
+		<section class="layout">
+			<article class="card lookup-card">
+				<h2>Text Embedding Input</h2>
+				<p class="hint">Type text, submit, and see each normalized character embedding</p>
+				<form id="embed-form" class="embed-form">
+					<label for="embed-input" class="form-label">Text</label>
+					<textarea id="embed-input" class="embed-input" rows="4" placeholder="Type a short sentence..."></textarea>
+					<button type="submit" class="embed-button">Plot Text Embeddings</button>
+				</form>
+				<p id="embed-request-status" class="plot-status"></p>
+				<div id="embed-lookup-table" class="lookup-table" aria-live="polite"></div>
+			</article>
+
+			<article class="card plot-card">
+				<h2>Text Embedding Plot</h2>
+				<p class="hint">2D character embeddings returned by <code>/embed_text</code></p>
+				<canvas id="embed-vector-canvas" width="760" height="520" aria-label="Text embedding vector plot" role="img"></canvas>
+				<p id="embed-plot-status" class="plot-status"></p>
+			</article>
+		</section>
+
+		<section class="layout">
+			<article class="card lookup-card">
+				<h2>Text Position Embedding Table</h2>
+				<p class="hint">Sequence positions mapped to returned position vectors</p>
+				<div id="embed-position-lookup-table" class="lookup-table" aria-live="polite"></div>
+			</article>
+
+			<article class="card plot-card">
+				<h2>Text Position Embedding Plot</h2>
+				<p class="hint">2D position embeddings returned by <code>/embed_text</code></p>
+				<canvas id="embed-position-vector-canvas" width="760" height="520" aria-label="Text position embedding vector plot" role="img"></canvas>
+				<p id="embed-position-plot-status" class="plot-status"></p>
+			</article>
+		</section>
+
+		<section class="layout">
+			<article class="card lookup-card">
+				<h2>Text Final Embedding Table</h2>
+				<p class="hint">Per-token final vectors after combining character and position embeddings</p>
+				<div id="embed-final-lookup-table" class="lookup-table" aria-live="polite"></div>
+			</article>
+
+			<article class="card plot-card">
+				<h2>Text Final Embedding Plot</h2>
+				<p class="hint">2D final embeddings returned by <code>/embed_text</code></p>
+				<canvas id="embed-final-vector-canvas" width="760" height="520" aria-label="Text final embedding vector plot" role="img"></canvas>
+				<p id="embed-final-plot-status" class="plot-status"></p>
 			</article>
 		</section>
 	</main>
